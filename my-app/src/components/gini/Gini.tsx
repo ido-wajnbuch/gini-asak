@@ -1,13 +1,26 @@
 import { TextField } from '@mui/material';
 import React, { useState , useRef, useEffect} from 'react';
 
+function PopupWish(numberOfWish:number)
+{
+    //add modal that shoes picture and text for each one of them
+    switch(numberOfWish)
+    {
+        case 1:
+
+        case 2:
+
+        case 3:
+
+        default:
+
+    }
+}
 const Gini : React.FC = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [valueSaver, setValueSaver] = useState('');
-    const questionNumber = useRef(0);
+    const wishNumber = useRef(0);
 
-    useEffect(() => {questionNumber.current++;});
-
+    const increaseWishNUmber = () => {wishNumber.current++;};
+        const [inputValue, setInputValue] = useState('');
     return (
         <div className='gini'>
             <img className='gini-img'
@@ -22,9 +35,10 @@ const Gini : React.FC = () => {
             onKeyDown={(e) => {
                 if (e.key === 'Enter')
                 {
-                    setValueSaver(inputValue);
+                    increaseWishNUmber();
                     setInputValue('')
-                    alert(`You pressed Enter! Value: ${valueSaver}`);
+                    console.log(wishNumber.current);
+                    PopupWish(wishNumber.current);
                 }
             }}
             />
